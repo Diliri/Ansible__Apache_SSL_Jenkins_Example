@@ -39,3 +39,6 @@ terraform.rc
 
 # Python
 venv/**
+
+# MacOS
+.DS_Store/**
