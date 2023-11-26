@@ -1,24 +1,24 @@
 provider "aws" {
-  region = "eu-central-1"
+  region = "eu-north-1"                                             # region = "eu-central-1"
 }
 
 resource "aws_default_vpc" "default" {}
 
 resource "aws_instance" "jenkins_master" {
-  ami                    = "ami-04e601abe3e1a910f"
+  ami                    = "ami-0fe8bec493a81c7da"                  # "ami-04e601abe3e1a910f"
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.jenkins_master.id]
-  key_name               = "your ssh key"
+  key_name               = "jenkins_Stockholm"                      # "your ssh key"
 
   tags = {
     Name  = "Jenkins"
-    Owner = "Your User"
+    Owner = "Diana_Muzhylivska"                                     # "Your User"
   }
 }
 
 resource "aws_security_group" "jenkins_master" {
   name        = "Jenkins Security Group"
-  description = "CI\\CD SecurityGroup"
+  description = "CI-CD SecurityGroup"
   vpc_id      = aws_default_vpc.default.id
 
   ingress {
@@ -51,7 +51,7 @@ resource "aws_security_group" "jenkins_master" {
 
   tags = {
     Name  = "Jenkins"
-    Owner = "Your User"
+    Owner = "Diana_Muzhylivska"                                    # "Your User"
   }
 
 }
